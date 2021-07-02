@@ -22,7 +22,7 @@ public class ConsultaController {
 	@Autowired
 	private ConsultaService service;
 
-	@GetMapping("/{id")
+	@GetMapping("/{id}")
 	public Consulta consulta(@PathVariable Long id) {
 		return service.findById(id);
 	}
@@ -35,6 +35,12 @@ public class ConsultaController {
 	@PostMapping
 	public Consulta newConsulta(@RequestBody Consulta entity) {
 		return service.save(entity);
+	}
+	
+	//salva consulta com anamnese identificada pelo id
+	@PostMapping ("/{id}")
+	public Consulta newConsultaanamnese(@RequestBody Consulta entity, @PathVariable Long id) {
+		return service.saveConsultaComAnamnese(entity, id);
 	}
 
 	@DeleteMapping("/{id")

@@ -46,4 +46,5 @@ public class AnamneseController {
 	public Anamnese update(@PathVariable Long id, @RequestBody Anamnese entity) {
 		return service.update(id, entity);		
 	}
+	
 }

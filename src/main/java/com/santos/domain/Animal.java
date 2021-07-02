@@ -29,7 +29,7 @@ public class Animal implements Serializable {
 	private int peso;
 	private int tipo;
 	private String dataNascimento;
-	private String data_cadastro;
+	private String dataCadastro;
 	private int estado;
 	
 	@OneToMany(mappedBy = "animalExame")

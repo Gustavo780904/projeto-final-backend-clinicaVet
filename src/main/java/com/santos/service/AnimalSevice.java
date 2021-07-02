@@ -35,4 +35,16 @@ public class AnimalSevice {
 		entity.setId(id);
 		return repository.save(entity);
 	}
+	//metodos de pesquisa
+	public List <Animal> listaDadosAnimais(Long id){
+		return repository.listaDadosAnimais(id);
+	}
+	//metodos de pesquisa
+	public List <Animal> listaDataUltiamConsulta(Long id){
+		return repository.listaDataUltiamConsulta(id);
+	}
+	//metodos de pesquisa
+	public List <Animal> listaNomesAnimais(){
+		return repository.listaNomesAnimais();
+	}
 }

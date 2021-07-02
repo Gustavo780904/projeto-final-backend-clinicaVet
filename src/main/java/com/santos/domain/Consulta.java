@@ -20,8 +20,8 @@ public class Consulta implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long cod_consulta;
-	private String data_consulta;
+	private Long codConsulta;
+	private String dataConsulta;
 	private String observacoes;
 	private String queixas;
 	private String historico;

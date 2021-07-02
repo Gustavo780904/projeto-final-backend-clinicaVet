@@ -9,15 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import lombok.Data;
 @Entity
 @Data
 public class Anamnese{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long cod_anamnese;
+	private Long codAnamnese;
 	private String problemaSistemaDigestivo;
 	private String problemaSistemaUroGenital;
 	private String problemaSistemaCardioRespiratorio;
@@ -27,8 +25,13 @@ public class Anamnese{
 	private String problemaOlhos;
 	private String problemaOuvidos;
 	
-	@ManyToMany(mappedBy="anamneses")
-	@JsonManagedReference
+	@ManyToMany
+//	@JsonBackReference
 	private List<Doencas> doencas = new ArrayList<Doencas>();
+
+	public Long getId() {
+		return codAnamnese;
+		
+	}
 
 }

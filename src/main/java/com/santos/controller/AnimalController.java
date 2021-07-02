@@ -46,5 +46,18 @@ public class AnimalController {
 	public Animal update(@PathVariable Long id, @RequestBody Animal entity) {
 		return service.update(id, entity);
 	}
+	
+	@GetMapping("/dadosanimais")
+	public List<Animal> listaDadosAnimais(@PathVariable Long id) {
+		return service.listaDadosAnimais(id);
+	}
+	@GetMapping("/ultimaconsulta")
+	public List<Animal> listaDataUltiamConsulta(@PathVariable Long id) {
+		return service.listaDataUltiamConsulta(id);
+	}
+	@GetMapping("/nomeanimais")
+	public List<Animal> listaNomesAnimais() {
+		return service.listaNomesAnimais();
+	}
 
 }
