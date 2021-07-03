@@ -2,6 +2,8 @@ package com.santos.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,7 @@ public class AnimalController {
 	private AnimalSevice service;
 
 	@GetMapping("/{id}")
-	public Animal animal(@PathVariable Long id) {
+	public Animal animal(@Valid @PathVariable Long id) {
 		return service.findById(id);
 	}
 
@@ -33,31 +35,38 @@ public class AnimalController {
 	}
 
 	@PostMapping
-	public Animal newAnimal(@RequestBody Animal entity) {
+	public Animal newAnimal(@Valid @RequestBody Animal entity) {
 		return service.save(entity);
 	}
 
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
+	public void delete(@Valid @PathVariable Long id) {
 		service.delete(id);
 	}
 
 	@PutMapping("/{id}")
-	public Animal update(@PathVariable Long id, @RequestBody Animal entity) {
+	public Animal update(@Valid @PathVariable Long id, @Valid @RequestBody Animal entity) {
 		return service.update(id, entity);
 	}
-	
+
 	@GetMapping("/dadosanimais")
-	public List<Animal> listaDadosAnimais(@PathVariable Long id) {
+	public List<Animal> listaDadosAnimais(@Valid @PathVariable Long id) {
 		return service.listaDadosAnimais(id);
 	}
-	@GetMapping("/ultimaconsulta")
-	public List<Animal> listaDataUltiamConsulta(@PathVariable Long id) {
-		return service.listaDataUltiamConsulta(id);
-	}
+
 	@GetMapping("/nomeanimais")
 	public List<Animal> listaNomesAnimais() {
 		return service.listaNomesAnimais();
+	}
+
+	@GetMapping("/nomesfotosanimais")
+	public List<Animal> listaNomesFotosAnimais() {
+		return service.listaNomesFotosAnimais();
+	}
+
+	@GetMapping("/animaisativos")
+	public List<Animal> listaAnimaisAtivos() {
+		return service.listaAnimaisAtivos();
 	}
 
 }

@@ -39,12 +39,17 @@ public class AnimalSevice {
 	public List <Animal> listaDadosAnimais(Long id){
 		return repository.listaDadosAnimais(id);
 	}
-	//metodos de pesquisa
-	public List <Animal> listaDataUltiamConsulta(Long id){
-		return repository.listaDataUltiamConsulta(id);
-	}
-	//metodos de pesquisa
+	
+
 	public List <Animal> listaNomesAnimais(){
 		return repository.listaNomesAnimais();
+	}
+
+	public List <Animal> listaNomesFotosAnimais(){
+		return repository.listaNomesFotosAnimais();
+	}
+
+	public List <Animal> listaAnimaisAtivos(){
+		return repository.listaAnimaisAtivos();
 	}
 }

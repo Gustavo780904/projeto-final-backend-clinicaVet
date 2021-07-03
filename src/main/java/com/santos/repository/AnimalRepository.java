@@ -7,19 +7,25 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.santos.domain.Animal;
 
-public interface AnimalRepository extends JpaRepository<Animal, Long>{
+public interface AnimalRepository extends JpaRepository<Animal, Long> {
+	
 	// consulta dos dados de um animal.
-	@Query(value = "select foto, nome, raca, tipo, peso from animal where id = ?1", nativeQuery = true)
+	
+	@Query(value = "select foto, nome, raca, tipo, peso from animal where id = ?1;", nativeQuery = true)
 	List<Animal> listaDadosAnimais(Long id);
-	
-	//apresenta data da ultima consulta
-	@Query(value = "select MAX(dataConsulta) from animal where id = ?1", nativeQuery = true)
-	List<Animal> listaDataUltiamConsulta(Long id);
-	
-	//lista todos os nomes dos animais a serem consultados 
-	@Query(value = "select nome from animal", nativeQuery = true)
-	List<Animal> listaNomesAnimais();
-	
 
+	// lista todos os nomes dos animais a serem consultados
+	@Query(value = "select nome from animal;", nativeQuery = true)
+	List<Animal> listaNomesAnimais();
+
+	// lista todos os nomes e fotos dos animais a serem consultados
 	
+	@Query(value = "select nome, foto from animal;", nativeQuery = true)
+	List<Animal> listaNomesFotosAnimais();
+	
+	// lista ativos
+	@Query(value = "select foto, nome, raca, tipo, peso from animal where estado = 1;", 
+			nativeQuery = true)
+	List<Animal> listaAnimaisAtivos();
+
 }

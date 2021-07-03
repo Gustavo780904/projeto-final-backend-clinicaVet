@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.santos.domain.Consulta;
@@ -32,23 +33,23 @@ public class ConsultaController {
 		return service.all();
 	}
 
-	@PostMapping
-	public Consulta newConsulta(@RequestBody Consulta entity) {
-		return service.save(entity);
+	@PostMapping("/{id}")
+	public Consulta newConsulta(@RequestBody Consulta entity, @PathVariable Long id) {
+		return service.save(entity, id);
 	}
 	
 	//salva consulta com anamnese identificada pelo id
-	@PostMapping ("/{id}")
-	public Consulta newConsultaanamnese(@RequestBody Consulta entity, @PathVariable Long id) {
-		return service.saveConsultaComAnamnese(entity, id);
+	@PostMapping ("/{id}/{codAnamnese}")
+	public Consulta newConsultaAnamnese(@RequestBody Consulta entity, @RequestParam List<Long>id) {
+		return service.saveConsultaComAnamnese(entity, id, id);
 	}
 
-	@DeleteMapping("/{id")
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		service.delete(id);
 	}
 
-	@PutMapping("/{id")
+	@PutMapping("/{id}")
 	public Consulta update(@PathVariable Long id, @RequestBody Consulta entity) {
 		return service.update(id, entity);
 	}

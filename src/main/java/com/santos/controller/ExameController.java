@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.santos.domain.Exame;
-import com.santos.repository.AnimalRepository;
 import com.santos.service.ExameService;
 
 @RestController
@@ -24,7 +23,7 @@ public class ExameController {
 	private ExameService service;
 
 
-	@GetMapping("/{id")
+	@GetMapping("/{id}")
 	public Exame exame(@PathVariable Long id) {
 		return service.findById(id);	
 	}
@@ -51,6 +50,6 @@ public class ExameController {
 	
 	@PostMapping("/{id}")
 	public Exame novoExame(@PathVariable Long id, @RequestBody Exame entity) {
-		return service.novoexame(id);
+		return service.novoexame(id, entity);
 	}
 }

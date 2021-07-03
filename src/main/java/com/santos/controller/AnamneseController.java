@@ -22,7 +22,7 @@ public class AnamneseController {
 	@Autowired
 	private AnamneseService service;
 
-	@GetMapping("/{id")
+	@GetMapping("/{id}")
 	public Anamnese Anamnese(@PathVariable Long id) {
 		return service.findById(id);	
 	}
