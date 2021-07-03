@@ -2,6 +2,8 @@ package com.santos.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,7 @@ public class AnamneseController {
 	private AnamneseService service;
 
 	@GetMapping("/{id}")
-	public Anamnese Anamnese(@PathVariable Long id) {
+	public Anamnese Anamnese(@Valid @PathVariable Long id) {
 		return service.findById(id);	
 	}
 	
@@ -33,17 +35,17 @@ public class AnamneseController {
 	}
 	
 	@PostMapping
-	public Anamnese newAnamnese(@RequestBody Anamnese entity) {
+	public Anamnese newAnamnese(@Valid @RequestBody Anamnese entity) {
 		return service.save(entity);		
 	}
 	
 	@DeleteMapping
-	public void delete (@PathVariable Long id) {
+	public void delete (@Valid @PathVariable Long id) {
 		service.delete(id);		
 	}
 	
 	@PutMapping("/{id}")
-	public Anamnese update(@PathVariable Long id, @RequestBody Anamnese entity) {
+	public Anamnese update(@Valid @PathVariable Long id, @Valid @RequestBody Anamnese entity) {
 		return service.update(id, entity);		
 	}
 	

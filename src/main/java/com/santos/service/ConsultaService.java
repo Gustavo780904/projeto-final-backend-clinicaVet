@@ -46,8 +46,8 @@ public class ConsultaService {
 		return repository.save(entity);
 	}
 
-	public Consulta saveConsultaComAnamnese(Consulta entity, List<Long, Long>id) {
-		Anamnese anamnese = anamneserepository.getById(id2);
+	public Consulta saveConsultaComAnamnese(Consulta entity, Long codAnamnese, Long id) {
+		Anamnese anamnese = anamneserepository.getById(codAnamnese);
 		entity.setAnamnese(anamnese);
 		Animal animal = animalRepository.getById(id);
 		entity.setAnimalConsulta(animal);

@@ -41,10 +41,11 @@ public class ExameService {
 		return repository.save(entity);
 	}
 
-	public Exame novoexame(Long id, Exame entity) {
+	public Exame newexame(Long id, Exame entity) {
 		Animal animal = animalRepository.getById(id);
 		entity.setAnimalExame(animal);
-		return null;
+		repository.save(entity);
+		return entity;
 	}
 
 }
