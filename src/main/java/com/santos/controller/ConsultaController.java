@@ -38,7 +38,12 @@ public class ConsultaController {
 	}
 
 //	salva consulta com anamnese identificada pelo id
-	@PostMapping ("/animal={id}&anamnese={codAnamnese}")
+//	@PostMapping ("/Animal={id}/Anamnese={codAnamnese}")
+//	
+//	public Consulta newConsultaAnamnese(@RequestBody Consulta entity, @PathVariable Long codAnamnese, @PathVariable Long id) {
+//		return service.saveConsultaComAnamnese(entity, codAnamnese, id);
+//	}
+	@PostMapping ("/Animal={id}/Anamnese={codAnamnese}")
 	public Consulta newConsultaAnamnese(@RequestBody Consulta entity, @PathVariable Long codAnamnese, @PathVariable Long id) {
 		return service.saveConsultaComAnamnese(entity, codAnamnese, id);
 	}

@@ -10,9 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.sun.istack.NotNull;
 
 import lombok.Data;
 
@@ -33,7 +35,7 @@ public class Animal implements Serializable {
 	private String raca;
 	@NotBlank(message = "O campo pelagem é obrigatório")
 	private String pelagem;
-	@NotNull
+	@NotNull(message = "O campo peso é obrigatório")
 	private Integer peso;
 	@NotNull
 	private Integer tipo;
@@ -41,7 +43,7 @@ public class Animal implements Serializable {
 	private String dataNascimento;
 	@NotBlank(message = "O campo dataCadastro é obrigatório")
 	private String dataCadastro;
-	@NotNull
+	@Range(min=1, max =2, message = "Digite 1 para ativo e 2 para inativo")
 	private Integer estado;
 
 	@OneToMany(mappedBy = "animalExame")

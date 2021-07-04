@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 import com.santos.domain.Anamnese;
 import com.santos.domain.Animal;
 import com.santos.domain.Consulta;
-import com.santos.repository.AnamneseRepository;
-import com.santos.repository.AnimalRepository;
 import com.santos.repository.ConsultaRepository;
 import com.santos.service.exception.ConsultaNaoEncontradaException;
 
@@ -19,9 +17,9 @@ public class ConsultaService {
 	@Autowired
 	private ConsultaRepository repository;
 	@Autowired
-	private AnamneseRepository anamneserepository;
+	private AnamneseService anamneseService;
 	@Autowired
-	private AnimalRepository animalRepository;
+	private AnimalSevice service;
 
 	public Consulta findById(Long id) {
 		return repository.findById(id).orElseThrow(() -> new ConsultaNaoEncontradaException(id));
@@ -32,7 +30,7 @@ public class ConsultaService {
 	}
 
 	public Consulta save(Consulta entity, Long id) {
-		Animal animal = animalRepository.getById(id);
+		Animal animal = service.findById(id);
 		entity.setAnimalConsulta(animal);
 		return repository.save(entity);
 	}
@@ -47,9 +45,9 @@ public class ConsultaService {
 	}
 
 	public Consulta saveConsultaComAnamnese(Consulta entity, Long codAnamnese, Long id) {
-		Anamnese anamnese = anamneserepository.getById(codAnamnese);
+		Anamnese anamnese = anamneseService.findById(codAnamnese);
 		entity.setAnamnese(anamnese);
-		Animal animal = animalRepository.getById(id);
+		Animal animal = service.findById(id);
 		entity.setAnimalConsulta(animal);
 		return repository.save(entity);
 	}
