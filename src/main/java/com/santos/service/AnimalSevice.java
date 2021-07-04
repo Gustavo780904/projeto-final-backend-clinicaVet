@@ -36,20 +36,20 @@ public class AnimalSevice {
 		return repository.save(entity);
 	}
 	//metodos de pesquisa
-	public List <Animal> listaDadosAnimais(Long id){
+	public List<Object[]> listaDadosAnimais(Long id){
 		return repository.listaDadosAnimais(id);
 	}
 	
 
-	public List <Animal> listaNomesAnimais(){
+	public List<Object[]> listaNomesAnimais(){
 		return repository.listaNomesAnimais();
 	}
 
-	public List <Animal> listaNomesFotosAnimais(){
+	public List<Object[]> listaNomesFotosAnimais(){
 		return repository.listaNomesFotosAnimais();
 	}
 
-	public List <Animal> listaAnimaisAtivos(){
+	public List<Object[]> listaAnimaisAtivos(){
 		return repository.listaAnimaisAtivos();
 	}
 }

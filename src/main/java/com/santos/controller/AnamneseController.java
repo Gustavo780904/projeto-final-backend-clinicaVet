@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.santos.domain.Anamnese;
@@ -36,6 +37,11 @@ public class AnamneseController {
 	
 	@PostMapping
 	public Anamnese newAnamnese(@Valid @RequestBody Anamnese entity) {
+		return service.save(entity);		
+	}
+	//vai mudar
+	@PostMapping("/doencas")
+	public Anamnese newAnamneseComDoenca(@Valid @RequestBody Anamnese entity, @RequestParam List<Long> id) {
 		return service.save(entity);		
 	}
 	

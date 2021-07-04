@@ -33,11 +33,6 @@ public class ExameController {
 		return service.all();		
 	}
 	
-//	@PostMapping("/{id}")
-//	public Exame newExame(@RequestBody Exame entity, @PathVariable Long id) {
-//		return service.save(entity);		
-//	}
-	
 	@DeleteMapping
 	public void delete (@PathVariable Long id) {
 		service.delete(id);		

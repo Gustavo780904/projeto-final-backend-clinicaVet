@@ -14,6 +14,8 @@ public class AnamneseService {
 
 	@Autowired
 	private AnamneseRepository repository;
+//	@Autowired
+//	private DoencasRepository doencaRepository;
 
 	public Anamnese findById(Long id) {
 		return repository.findById(id).orElseThrow(() -> new AnamneseNaoEncontradaException(id));
@@ -36,5 +38,13 @@ public class AnamneseService {
 		entity.setCodAnamnese(id);
 		return repository.save(entity);
 	}
+	
+//	public Anamnese newAnamneseComDoenca (List<Long> id, Anamnese entity, Doencas[] doencas) {
+//		doencas
+//		id.stream().forEach(id ->   doencaRepository.getById(id));
+//		;
+//		entity.setDoencas(doenca);;
+//		return entity;
+//	}
 
 }

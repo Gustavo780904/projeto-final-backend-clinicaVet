@@ -18,9 +18,5 @@ public class Doencas implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long cod_doenca;
 	private String nome;
-	
-//	@ManyToMany
-//	@JsonBackReference
-//	private List<Anamnese> anamneses = new ArrayList<Anamnese>();
 
 }

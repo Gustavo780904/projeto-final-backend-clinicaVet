@@ -22,13 +22,13 @@ public class DoencasController {
 	@Autowired
 	private DoencasService service;
 
-	@GetMapping("/{id")
+	@GetMapping("/{id}")
 	public Doencas Doencas(@PathVariable Long id) {
 		return service.findById(id);	
 	}
 	
 	@GetMapping
-	public List<Doencas> Doencass () {
+	public List<Doencas> Doencas () {
 		return service.all();		
 	}
 	

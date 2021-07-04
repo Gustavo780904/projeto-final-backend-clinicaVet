@@ -12,20 +12,20 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
 	// consulta dos dados de um animal.
 	
 	@Query(value = "select foto, nome, raca, tipo, peso from animal where id = ?1;", nativeQuery = true)
-	List<Animal> listaDadosAnimais(Long id);
+	List<Object[]> listaDadosAnimais(Long id);
 
 	// lista todos os nomes dos animais a serem consultados
 	@Query(value = "select nome from animal;", nativeQuery = true)
-	List<Animal> listaNomesAnimais();
+	List<Object[]> listaNomesAnimais();
 
 	// lista todos os nomes e fotos dos animais a serem consultados
 	
 	@Query(value = "select nome, foto from animal;", nativeQuery = true)
-	List<Animal> listaNomesFotosAnimais();
+	List<Object[]> listaNomesFotosAnimais();
 	
 	// lista ativos
 	@Query(value = "select foto, nome, raca, tipo, peso from animal where estado = 1;", 
 			nativeQuery = true)
-	List<Animal> listaAnimaisAtivos();
+	List<Object[]> listaAnimaisAtivos();
 
 }

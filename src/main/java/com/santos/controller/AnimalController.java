@@ -50,22 +50,22 @@ public class AnimalController {
 	}
 
 	@GetMapping("/dadosanimais")
-	public List<Animal> listaDadosAnimais(@Valid @PathVariable Long id) {
+	public List<Object[]> listaDadosAnimais(@Valid @PathVariable Long id) {
 		return service.listaDadosAnimais(id);
 	}
 
 	@GetMapping("/nomeanimais")
-	public List<Animal> listaNomesAnimais() {
+	public List<Object[]> listaNomesAnimais() {
 		return service.listaNomesAnimais();
 	}
 
 	@GetMapping("/nomesfotosanimais")
-	public List<Animal> listaNomesFotosAnimais() {
+	public List<Object[]> listaNomesFotosAnimais() {
 		return service.listaNomesFotosAnimais();
 	}
 
 	@GetMapping("/animaisativos")
-	public List<Animal> listaAnimaisAtivos() {
+	public List<Object[]> listaAnimaisAtivos() {
 		return service.listaAnimaisAtivos();
 	}
 
