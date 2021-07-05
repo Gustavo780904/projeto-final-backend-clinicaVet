@@ -43,7 +43,7 @@ public class Animal implements Serializable {
 	private String dataNascimento;
 	@NotBlank(message = "O campo dataCadastro é obrigatório")
 	private String dataCadastro;
-	@Range(min=1, max =2, message = "Digite 1 para ativo e 2 para inativo")
+	@Range(min=0, max =1, message = "Digite 1 para ativo e 0 para inativo")
 	private Integer estado;
 
 	@OneToMany(mappedBy = "animalExame")

@@ -1,7 +1,6 @@
 package com.santos.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -46,7 +45,7 @@ public class AnimalController {
 	}
 
 	@PutMapping("/{id}")
-	public Animal update(@PathVariable Long id, @RequestBody Animal entity) {
+	public Animal update(@PathVariable Long id, @Valid @RequestBody Animal entity) {
 		return service.update(id, entity);
 	}
 
