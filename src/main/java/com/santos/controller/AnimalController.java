@@ -51,7 +51,7 @@ public class AnimalController {
 	}
 
 	@GetMapping("/dadosanimais/{id}")
-	public Optional<Animal> listaDadosAnimais(@Valid @PathVariable Long id) {
+	public List<Animal[]> listaDadosAnimais(@Valid @PathVariable Long id) {
 		return service.listaDadosAnimais(id);
 	}
 

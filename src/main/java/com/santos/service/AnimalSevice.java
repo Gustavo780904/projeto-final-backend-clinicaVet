@@ -37,8 +37,8 @@ public class AnimalSevice {
 		return repository.save(entity);
 	}
 	//metodos de pesquisa
-	public Optional<Animal> listaDadosAnimais(Long id){
-		return repository.findById(id);
+	public List<Animal[]> listaDadosAnimais(Long id){
+		return repository.listaDadosAnimais(id);
 	}
 	
 
