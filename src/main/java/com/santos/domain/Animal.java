@@ -37,7 +37,7 @@ public class Animal implements Serializable {
 	private String pelagem;
 	@NotNull(message = "O campo peso é obrigatório")
 	private Integer peso;
-	@NotNull
+	@NotNull(message = "O campo tipo é obrigatório")
 	private Integer tipo;
 	@NotBlank(message = "O campo dataNascimento é obrigatório")
 	private String dataNascimento;

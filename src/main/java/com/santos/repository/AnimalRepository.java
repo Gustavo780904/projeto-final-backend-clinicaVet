@@ -11,7 +11,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
 	
 	// consulta dos dados de um animal.
 	
-	@Query(value = "select foto, nome, raca, tipo, peso from animal where id = ?1", nativeQuery = true)
+	@Query(value = "select foto, nome, raca, tipo, peso from animal where id=?", nativeQuery = true)
 	List<Animal[]> listaDadosAnimais(Long id);
 
 	// lista todos os nomes dos animais a serem consultados
