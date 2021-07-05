@@ -26,7 +26,7 @@ public class AnimalController {
 	private AnimalSevice service;
 
 	@GetMapping("/{id}")
-	public Animal animal(@Valid @PathVariable Long id) {
+	public Animal animal(@PathVariable Long id) {
 		return service.findById(id);
 	}
 
@@ -41,17 +41,17 @@ public class AnimalController {
 	}
 
 	@DeleteMapping("/{id}")
-	public void delete(@Valid @PathVariable Long id) {
+	public void delete(@PathVariable Long id) {
 		service.delete(id);
 	}
 
 	@PutMapping("/{id}")
-	public Animal update(@Valid @PathVariable Long id, @Valid @RequestBody Animal entity) {
+	public Animal update(@PathVariable Long id, @RequestBody Animal entity) {
 		return service.update(id, entity);
 	}
 
 	@GetMapping("/dadosanimais/{id}")
-	public List<Animal[]> listaDadosAnimais(@Valid @PathVariable Long id) {
+	public List<Animal[]> listaDadosAnimais(@PathVariable Long id) {
 		return service.listaDadosAnimais(id);
 	}
 
