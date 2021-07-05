@@ -1,6 +1,7 @@
 package com.santos.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -49,8 +50,8 @@ public class AnimalController {
 		return service.update(id, entity);
 	}
 
-	@GetMapping("/dadosanimais")
-	public List<Object[]> listaDadosAnimais(@Valid @PathVariable Long id) {
+	@GetMapping("/dadosanimais/{id}")
+	public Optional<Animal> listaDadosAnimais(@Valid @PathVariable Long id) {
 		return service.listaDadosAnimais(id);
 	}
 

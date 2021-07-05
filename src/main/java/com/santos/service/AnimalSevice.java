@@ -1,6 +1,7 @@
 package com.santos.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,8 +37,8 @@ public class AnimalSevice {
 		return repository.save(entity);
 	}
 	//metodos de pesquisa
-	public List<Object[]> listaDadosAnimais(Long id){
-		return repository.listaDadosAnimais(id);
+	public Optional<Animal> listaDadosAnimais(Long id){
+		return repository.findById(id);
 	}
 	
 
